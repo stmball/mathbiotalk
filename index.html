@@ -1,0 +1,315 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="index.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,700,700i&display=swap" rel="stylesheet">
+        <link href="src/fontawesome-free-5.12.1-web/css/all.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id='impress'>
+            <!-- Title slide -->
+            <div id="title" class="step slide title" data-x="0" data-y="-200" data-scale='3'>
+                <h1 style="font-size: 5rem; margin-top: 0;">Ion Channel Analysis</h1>
+                <h4 style="font-size: 3rem">Problems, approaches and Deep Learning solutions</h4>
+                <p>Sam Ball</p>
+            </div>
+
+            <div id='about-me' class="step slide about-me" data-x="-4400" data-y="-200" data-scale="3">
+                <div id="about-me-text">
+                    <h4>About Me</h4>
+                    <ul>
+                        <li>Integrated MMath at University of Liverpool</li>
+                        <li>Now 1st year PhD student in the RBJ lab in IACD</li>
+                        <li>Interests:</li>
+                        <ul>
+                            <li>Artificial intelligence</li>
+                            <li>Mathematical modelling & statistics</li>
+                            <li>Biology</li>
+                            <li>Making it all useful!</li>
+                        </ul>
+                    </ul>
+                </div>
+                <img src="src/img/squarelowQ.jpg" alt="" class="about-me-image me">
+                <img src="src/img/index.jpg" alt="" class="about-me-image lab">
+            </div>
+
+            <div id='what' class="step contents-title" data-x="-1100" data-y="750" data-scale='1'>
+                <div class="contents-title-container what">
+                    <p>What are ion channels?</p>
+                </div>
+            </div>
+
+            <div id='what-explained' class="step slide" data-x="-1100" data-y='1400' data-scale="0.5">
+                <ul>
+                    <li>Found in the cell membrane.</li>
+                    <li>Work via gating mechanism (open/closed).</li>
+                    <li>Responsible for resting membrane potential, action potentials (neurological transmission), regulating cell volume.</li>
+                </ul>
+                <img src="src/img/ion_channels.jpg" alt="" class="center-image">
+            </div>
+
+            <div id='why' class="step contents-title" data-x="-550" data-y="750" data-scale='1'>
+                <div class="contents-title-container why">
+                    <p>Why do they matter?</p>
+                </div>
+            </div>
+
+            <div id='why-explained' class="step slide" data-x="-550" data-y="1400" data-scale="0.5">
+                <ul>
+                    <li>Damaged ion channels responsible for many health conditions (LQT related sudden death, Timothy syndrome)</li>
+                    <li>Ion channels are a target for theraputic drugs for many other conditions (Parkinsons, Multiple Sclerosis)</li>
+                    <li>Ion channel anaylsis important in drug safety</li>
+                    <li>Common food chemicals such as glucose, artificial sweeteners, pesticides affect ion channels </li>
+                </ul>
+                <img src="src/img/Bilateral-cutaneous-syndactyly-of-the-third-fourth-and-fifth-fingers.png" alt="" class="center-image">
+
+            </div>
+
+            <div id='problem' class="step contents-title" data-x='0' data-y="750" data-scale="1">
+                <div class="contents-title-container problem">
+                    <p>What is the problem?</p>
+                </div>
+            </div>
+
+            <div id='problem-explained' class="step slide" data-x="0" data-y="1400" data-scale="0.5">
+                <ul>
+                    <li>Methods for ion channel recording are advancing rapidly - Nobel Prize winning patch clamp method (early 1980s) to modern recording arrays.</li>
+                    <li>Still need skilled researcher to analyse data (with computer assistance)</li>
+                    <li>Some fully automated methods exist with significant drawbacks or assumptions</li>
+                    <li>Lots of potential errors: background noise, baseline drift, etc</li>
+                </ul>
+                <br>
+                <div style="display: grid; grid-template-columns: 50% 50%; gap: 10px;">
+                    <img src="src/img/csm_Figure-3b_b64bfeffc6.gif" alt="" class='grid-image'>
+                    <img src="src/img/Patch_Clamp_Chip.svg.png" alt="" class="grid-image">
+                </div>
+            </div>
+
+            <div id='problem-explained-2' class="step slide" data-x='0' data-y="1900" data-scale="0.5" style="margin: 0;">
+                <h4>A 'well behaved' ion channel recording</h4>
+                <div class="slide-image-container">
+                    <img src="src/img/ion_channel_data.png" alt="">
+                </div>
+            </div>
+
+            <div id='problem-explained-3' class="step slide" data-x='0' data-y="2400" data-scale="0.5" style="margin: 0;">
+                <h4>A 'nasty' ion channel recording</h4>
+
+                    <img src="src/img/image002.png" alt="" class="center-image" style="width: 100%;">
+                    <br>
+                    <img src="src/img/image001.png" alt="" class="center-image" style="width: 100%;">
+            </div>
+        
+            <div id='approaches' class="step contents-title" data-x='550' data-y="750" data-scale="1">
+                <div class="contents-title-container approaches">
+                    <p>Current approaches</p>
+                </div>
+            </div>
+
+            <div id='approaches-explained' class="step slide" data-x="550" data-y="1400" data-scale="0.5">
+                <h1>"Naive" Approach</h1>
+                <ul>
+                    <li>Ion channels have two "states": Open and Closed</li>
+                    <li>Model a single channel as having a 'chance' to open/close</li>
+                    <li>Easy to analyse - current levels have one to one correspondence with states</li>
+                    <li>Unique model for given data</li>
+                </ul>
+            </div>
+
+            <div id='approaches-explained-2' class="step slide" data-x="550" data-y="1900" data-scale="0.5">
+                <img src="src/img/fail1.png" alt="" class="center-image">
+            </div>
+
+            <div id='markov-explained' class="step slide" data-x="-500" data-y="2100" data-scale="0.5" data-rotate='90'>
+                <h1>Hidden Markov Models</h1>
+            </div>
+
+            <div id='markov-explained-2' class="step slide" data-x="-1100" data-y="2100" data-scale="0.5" data-rotate='90'>
+                <h4 style="text-align: center;">Discrete Time Markov Chain</h4>
+                <img src="src/img/Markovkate_01.svg.png" alt="" class="center-image"> 
+            </div>
+
+            <div id="markov-explained-3" class="step slide" data-x="-1700" data-y="2100" data-scale="0.5" data-rotate="90">
+                <img src="src/img/markov_chain_1.png" alt="" class="center-image">
+                <br>
+                <img src="src/img/1*y7UqAduWhgUn1rky7IGLag.png" alt="" class="center-image">
+                <p style="text-align: center;">http://bit.ly/stmball-mathsjam</p>
+            </div>
+            
+            <div id="markov-explained-4" class="step slide" data-x="-2300" data-y="2100" data-scale="0.5" data-rotate="90">
+                <h4 style="text-align: center;">Continuous Time Markov Chain</h4>
+                <img src="src/img/test1.png" alt="" class="center-image">
+                <br>
+                <img src="src/img/9kfpQ.png" alt="" class="center-image">
+            </div>
+
+            <div id="markov-explanied-5" class="step slide" data-x="-2900" data-y="2100" data-scale="0.5" data-rotate="90">
+                <h4 style="text-align: center;">Hidden Markov Models</h4>
+                <ul>
+                    <li>Sets of <i>observable</i> and <i>hidden</i> states</li>
+                    <li><i>Hidden</i> states <i>may</i> give different observations</li>
+                    <li>Multiple hidden states might give the <i>same</i> information</li>
+                    <li>Can be discrete or continuous</li>
+                </ul>
+                <img src="src/img/1024px-HMMsequence.svg.png" alt="" class="center-image hmm">
+            </div>
+
+            <div id="markov-explained-6" class="step slide" data-x="-3500" data-y="2100" data-scale="0.5" data-rotate="90">
+                <h4>Common HMM Problems</h4>
+                <ul>
+                    <li>Given a sequence of observations and parameters, what is the probability distribution of the hidden states at the last observation? <i>Solved via Forward Algorithm</i></li>
+                    <li>Same as above, but part way through a sequence of observations? <i>Solved via Forward-Backward Algorithm</i></li>
+                    <li>Given a sequence of observerations and parameters, what is the joint probability distribution of <strong>the entire hidden state sequence? </strong><i>Solved via Viterbi Algorithm</i></li>
+                    <li>Given a sequence of observations <strong>but no parameters</strong>, what is the best set of state transition parameters? <i>Not easy - Baum-Welch algorithm gives MLE, Monte Carlo approach more often used</i></li>
+                </ul>
+            </div>
+
+            <div id='approaches-explained-3' class="step slide" data-x="550" data-y="2400" data-scale="0.5">
+                <h1>Markovian Approach</h1>
+                <ul>
+                    <li>Ion channels have many "states", some open, some closed</li>
+                    <li>Model a single channel as a continuous time hidden Markov model with each state having an observable open/closed state</li>
+                    <li>Hard to analyse - current levels have one to many correspondence with states</li>
+                    <li><strong>Not</strong> a unique model for given data</li>
+                </ul>
+            </div>
+
+            <div id='approaches-explained-4' class="step slide" data-x="550" data-y="2900" data-scale="0.5">
+                <div style="display: grid; grid-template: 50% 50% / 50% 50%; gap: 20px;">
+                    <img src="src/img/fail1.png" alt="" class="grid-image">                
+                    <img src="src/img/fail2.png" alt="" class="grid-image">
+                    <img src="src/img/test1(1).png" alt="" class="grid-image">
+                    <img src="src/img/test1(2).png" alt="" class="grid-image">
+                    
+                </div>
+            </div>
+
+            <div id='approaches-explained-5' class="step slide" data-x="550" data-y="3400" data-scale="0.5" style="padding: 0;">
+                <div style="display: grid; grid-template-columns: 50% 50%; margin: 0; height: 100%; width: 100%;">
+                    <p style="grid-column: 1 / 2; font-size: 1.5rem;">\[Q^{CCO} = \begin{pmatrix} -100 & 0 & 100 \\ 0 & -10 & 10 \\ 100 & 10 & -110 \end{pmatrix} \] </p>
+                    <p style="grid-column: 2 / 3; font-size: 1.5rem;">\[Q^{COC} = \begin{pmatrix} -100 & 10.78 & 89.22 \\ 9.01 & -9.01 & 0 \\ 111.00 & 0 & -111.00 \end{pmatrix}\]</p>
+                </div>
+            </div>
+
+            <div id='approaches-explained-5-1' class="step slide" data-x="550" data-y="3900" data-scale="0.5" style="padding: 0;">
+                <div style="display: grid; grid-template-columns: 50% 50%; margin: 0; height: 100%; width: 100%;">
+                    <p style="grid-column: 1 / 2; font-size: 1.5rem;">\[Q^{CCO} = \begin{pmatrix} -100 & 0 & 100 \\ 0 & -10 & 10 \\ 100 & 10 & -110 \end{pmatrix} \] </p>
+                    <p style="grid-column: 2 / 3; font-size: 1.5rem;">\[Q^{COC} = \begin{pmatrix} -100 & 10.78 & 89.22 \\ 9.01 & -9.01 & 0 \\ 111.00 & 0 & -111.00 \end{pmatrix}\]</p>
+                    <p style="grid-column: 1 / 3; font-size: 1.5rem;">\[Q = \begin{pmatrix} Q_{OO} & Q_{OC} \\ Q_{CO} & Q_{CC} \end{pmatrix}  \]                     \[S = \begin{pmatrix} S_{OO} & 0 \\ 0 & S_{CC} \end{pmatrix}\] \[Q^{COC}_{OO} = S_{OO} \ Q^{CCO}_{OO} \ S_{OO}^{-1} \] \[Q^{COC}_{CC} = S_{CC} \ Q^{CCO}_{CC} \ S_{CC}^{-1}\]
+
+                    </p>
+                </div>
+            </div>
+
+            <div id="approaches-explained-6" class="step slide" data-x="550" data-y="4300" data-scale="0.5">
+                <div style="display: grid; grid-template-columns: 50% 50%; gap: 20px;">
+                    <img src="src/img/Examples-of-reaction-diagrams-for-canonical-forms-a-BKU-canonical-form-for-N-c-6-and.png" alt="" class="grid-image">
+                    <img src="src/img/Comparison-of-transition-matrices-for-canonical-forms-a-BKU-uncoupled-form-b.png" alt="" class="grid-image">
+                </div>
+
+            </div>
+
+            <div id="approaches-explained-7" class="step slide" data-x="550" data-y="4800" data-scale="0.5">
+                <h4>Why bother with single channel analysis?</h4>
+                <ul>
+                    <li>Hodgekin and Huxley created differential equations for simulating the action potentials found in neurons and cardiac myocytes - parameters for this model found using 'averaging' method over lots of channels (whole cell recording)</li>
+                    <li>Markovian stochastic approach gives noisy output, that is thought to convey additional information in the nervous & cardiovascular system - better drug discovery</li>
+                    <li>More information = more accurate model</li>
+                </ul>
+            </div>
+        
+
+            <div id='my-stuff' class="step contents-title" data-x='1100' data-y="750" data-scale="1">
+                <div class="contents-title-container my-stuff">
+                    <p>Application of Deep Learning</p>
+                </div>
+            </div>
+
+            <div id="my-stuff-2" class="step slide" data-x="1100" data-y='1400' data-scale="0.5">
+                <div style="display: grid; grid-template-columns: 50% 50%; gap: 20px;">
+                    <img src="src/img/0*LJBO8UbtzK_SKMog.png" alt="" class="grid-image">
+                    <img src="src/img/1*1mpE6fsq5LNxH31xeTWi5w.jpeg" alt="" class="grid-image">
+                </div>
+                <a href="https://playground.tensorflow.org/" style="text-align: center;">Tensorflow playground</a>
+            </div>
+
+            <div id="my-stuff-3" class="step slide" data-x='1100' data-y='1900' data-scale='0.5' style="margin: 0;">
+                <div class="slide-image-container">
+                    <img src="https://imgs.xkcd.com/comics/machine_learning.png " alt="">
+                </div>
+            </div>
+
+            <div id="my-stuff-4" class="step slide" data-x="1100" data-y="2400" data-scale="0.5">
+                <div class="slide-image-container" >
+                    <img src="src/img/images.png" alt="" style='width: 400px;'>
+                </div>
+            </div>
+
+            <div id="my-stuff-5" class="step slide" data-x="1100" data-y="2900" data-scale="0.5">
+                <div class="slide-image-container" >
+                    <img src="src/img/RNN-vs-LSTM-vs-GRU-1024x308.png" alt="" style='width: 1000px;'>
+                </div>
+            </div>
+
+            <div id="my-stuff-6" class="step slide" data-x="1100" data-y="3400" data-scale="0.5">
+                <div class="slide-image-container">
+                    <img src="src/img/cnn.jpeg" alt="">
+                </div>
+            </div>
+
+            <div id="my-stuff-7" class="step slide" data-x="1100" data-y="3900" data-scale="0.5">
+                <div class="slide-image-container">
+                    <img src="src/img/Screenshot_2020-02-13 Deep-Channel uses deep neural networks to detect single-molecule events from patch-clamp data - s4200[...].png" alt="">                
+                </div>
+            </div>
+
+            <div id="my-stuff-8" class="step slide" data-x="1100" data-y="4400" data-scale="0.5">
+                <div class="slide-image-container">
+                    <img src="src/img/Screenshot_2020-02-13 Deep-Channel uses deep neural networks to detect single-molecule events from patch-clamp data Kopernio(2).png" alt="">
+                </div>
+            </div>
+
+            <div id="my-stuff-9" class="step slide" data-x="1100" data-y="4900" data-scale="0.5">
+                <div class="slide-image-container">
+                    <img src="src/img/Screenshot_2020-02-13 Deep-Channel uses deep neural networks to detect single-molecule events from patch-clamp data Kopernio.png" alt="">
+                </div>
+            </div>
+
+            <div id="my-stuff-10" class="step slide" data-x="1100" data-y="5400" data-scale="0.5">
+                <div class="slide-image-container">
+                    <img src="src/img/Screenshot_2020-02-13 Deep-Channel uses deep neural networks to detect single-molecule events from patch-clamp data Kopernio(1).png" alt="">
+                </div>
+            </div>
+
+            <div id="my-stuff-11" class="step slide" data-x="1100" data-y="5900" data-scale="0.5">
+                <table>
+                    <tr>
+                        <th>Method</th>
+                        <th>Open/Closed</th>
+                        <th>Markovian</th>
+                    </tr>
+                    <tr>
+                        <th>Non-Deep Learning</th>
+                        <td><i class="fas fa-check"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                        <th>Deep Learning</th>
+                        <td><i class="fas fa-check"></i></td>
+                        <td><i class="fas fa-question"></i></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id='end' class="step slide" data-x='-300' data-y='7800' data-scale="10" data-rotate="90">
+                <h1>Thanks for listening!</h1>
+            </div>
+
+
+        </div>
+    <script src="js/impress.js"></script>
+    <script>impress().init();</script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    </body>
+</html>
